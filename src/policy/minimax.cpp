@@ -267,7 +267,7 @@ int MiniMax::eval_ctx(
             break;
         }
 
-        first = false;   //PVS 新增：之後的走法改用零視窗偵察
+        first = false;   //PVS ：之後的走法改用零視窗偵察
     }
 
     history.pop(state->hash());
