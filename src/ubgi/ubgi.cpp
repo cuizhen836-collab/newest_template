@@ -481,13 +481,13 @@ static void do_search(
         if(ctx.has_deadline && std::chrono::steady_clock::now() >= ctx.deadline){
             break;
         }
-        //時控 修改（迄）-----------------------------------------------
+        //時控 
         if(result.score >= P_MAX - 100 || result.score <= M_MAX + 100){
             break;
         }
     }
 
-    //時控 修改（起）-----------------------------------------------
+    //時控 修改
     // 原本是 if(alive())，但「被自己的截止時間中斷」時 alive() 會是 false，
     // 那樣就不會送 bestmove。實際對戰的 CLI 不會送 stop、而是時間到直接砍進程，
     // 所以截止時間中斷後我們必須自己把 bestmove 印出來。
@@ -498,7 +498,7 @@ static void do_search(
         g_bestmove_sent = true;
         send("bestmove " + move_to_str(best_move));
     }
-    //時控 修改（迄）-----------------------------------------------
+    //時控 
     g_searching = false;
 }
 
